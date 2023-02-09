@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DotNetCoreProject1.Models.Car>;
+
+@*_Layout.cshtml is shared in this page from shared folder until the render body tage.*@
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "ShowAllCars";
+}
+
+    <div class="container">
+        @Html.ActionLink("Add a new car", "Addcar", "car")
+        <h3>Show all cars.</h3>
+        @foreach (var car in Model)
+        {
+    <div class="for-fiv" style="background-color:gray;">
+        <img class="logo" src="~/images/carLogo.png" alt="placeholder for image" /><br /><br />
+        <p>@Html.DisplayNameFor(model => model.CarModel): @Html.DisplayFor(model => car.CarModel). </p>
+        <p>@Html.DisplayNameFor(model => model.CarType): @Html.DisplayFor(model => car.CarType). </p>
+
+        @*<p>@Html.DisplayNameFor(model => model.ReviewScore): @Html.DisplayFor(model => car.ReviewScore). </p>
+        <p>@Html.DisplayNameFor(model => model.ReleaseDate):@Html.DisplayFor(model => car.ReleaseDate). </p>
+        <p>@Html.DisplayNameFor(model => model.AvailableInMarket): @Html.DisplayFor(model => car.AvailableInMarket). </p>*@
+
+        <p>
+            @Html.ActionLink("See Details", "ShowCarDetails", "Car", new { id = car.Id })
+            @Html.ActionLink("Edit this car", "EditCar", "Car", new { id = car.Id })
+            @Html.ActionLink("Delete this car", "DeleteCar", "Car", new { id = car.Id })
+        </p>
+
+    </div>
+
+        }
+
+    </div>

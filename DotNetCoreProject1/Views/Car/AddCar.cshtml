@@ -1,0 +1,19 @@
+﻿@page
+@model DotNetCoreProject1.Models.Car
+
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Add Car";
+}
+
+    @*simplest way to create form in asp.net*@
+    <div class="container">
+        <h3>Add a new car below:</h3>
+        @using (Html.BeginForm()) //Html.BeginForm("action", "controller"). It is done here by default by model binder.
+        {
+            @Html.EditorForModel()
+            <input type="submit" value="Add this car" />
+        }
+        <p>@Html.ActionLink("Go back to all list", "ShowAllCars", "car")</p>
+    </div>

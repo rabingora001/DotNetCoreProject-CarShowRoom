@@ -1,0 +1,64 @@
+﻿@page
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "About Page";
+}
+
+<header class="page-header">
+    <div class="container">
+        <h3>This is the about page of my website.</h3>
+        
+    </div>
+</header>
+
+<section class="page-section">
+    <div class="container">
+        <span>Welcome to Rabin's website!</span><br />
+        <p>This website is created to learn about asp.net core project creation instructions.</p>
+        <p>Here i have documented the stpes that we did in class to make a asp.net core web app.</p>
+        <p>This Website is created by <strong id="creator"> Rabin Gora</strong>. This is a project website for asp.net class. </p>
+
+
+
+
+
+
+        <p>This is linked with html helper. </p>
+        @*This is in format of (@@Html.ActionLink("String","Action","Controller").*@
+        @Html.ActionLink("click here to display dashboard page", "DisplayDashboard", "Dashboard")
+
+        <p>This is linked with Tag helper. </p>
+        @*TagBuilder helpers are alternative to html helpers. Need to import Tag Helper at the top of this page.
+        Format is (a asp-action="sth" asp-controller="sth" asp-route-id="sth")*@
+        <a asp-action="DisplayMessage" asp-controller="Dashboard" asp-route-id="3">click here to route to Dashboard Controller's-DisplayMessage Action.</a>
+
+        <br /><br /><br />
+        @await Html.PartialAsync("_MyPartialView")
+
+        <br />
+        <h3>This is the main view (Home Controller Index Action return View("Index.cshtml"))</h3>
+
+        <br />
+        @await Html.PartialAsync("_MyPartialView2")
+
+
+        <br />
+        <p>*This is from viewbag></p>
+        <ol>
+            @foreach (KeyValuePair<string, int> i in ViewBag.Users)
+            {
+                <li>Name: @i.Key and User Id: @i.Value</li>
+            }
+        </ol>
+
+        <p>*This is from ViewData.</p>
+        @*why this give me NullReferenceException???*@
+
+        @*@ViewData["Greeting"]*@
+    </div>
+    
+
+</section>
+
+
+

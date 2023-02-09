@@ -1,0 +1,30 @@
+﻿@page
+@model DotNetCoreProject1.Models.Car
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelper
+
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Edit Car";
+}
+
+
+
+    <div class="container">
+        <h3>Edit the car below:</h3>
+        @using (Html.BeginForm("EditCar", "Car"))
+        {
+            <p>@Html.LabelFor(model => model.CarModel) @Html.EditorFor(model => model.CarModel)</p>
+            <p> @Html.LabelFor(model => model.CarType)  @Html.EditorFor(model => model.CarType)</p>
+            <p>@Html.LabelFor(model => model.ReviewScore)  @Html.EditorFor(model => model.ReviewScore)</p>
+            <p>@Html.LabelFor(model => model.AvailableInMarket)  @Html.EditorFor(model => model.AvailableInMarket)</p>
+            <p>@Html.LabelFor(Model => Model.ReleaseDate) @Html.EditorFor(model => model.ReleaseDate) </p>
+            <p>@Html.LabelFor(model => model.Description)  @Html.EditorFor(model => model.Description)</p>
+            <input type="submit" value="Edit this car" />
+
+            <p>
+                @Html.ActionLink("Go back to all list", "ShowAllCars", "car")
+                @*@Html.ActionLink("Delete this car", "DeleteCar", "Car", new { id = Model.Id })*@
+            </p>
+        }
+    </div>

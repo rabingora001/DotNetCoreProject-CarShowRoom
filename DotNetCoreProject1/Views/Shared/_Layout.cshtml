@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+
+    <nav class="page-nav">
+        <div class="container">
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Dashboard", "DisplayDashboard", "Dashboard")
+            @Html.ActionLink("About", "AboutPage", "About")
+            @Html.ActionLink("Car Model", "ShowAllCars", "Car")
+            @Html.ActionLink("Logout", "Login", "LoginAndRegister")
+        </div>
+    </nav>
+
+    @*<div>this is before the body</div>*@
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @*<div>this is after the body</div>*@
+
+    <footer class="page-footer">
+        <div class="container">
+            Created by:<br>
+            Rabin's Website<br />
+            1234 Main Street<br />
+            Seattle<br />
+            WA 98999<br />
+        </div>
+    </footer>
+</body>
+</html>

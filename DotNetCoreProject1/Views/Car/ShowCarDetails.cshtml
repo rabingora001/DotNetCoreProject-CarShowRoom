@@ -1,0 +1,20 @@
+﻿@model DotNetCoreProject1.Models.Car
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Show Car details";
+}
+
+
+    <div class="container">
+        <h3>show details for a car</h3>
+
+        <p>@Html.DisplayNameFor(model => model.CarModel): @Html.DisplayFor(model => model.CarModel). </p>
+        <p>@Html.DisplayNameFor(model => model.CarType): @Html.DisplayFor(model => model.CarType). </p>
+        <p>@Html.DisplayNameFor(model => model.ReviewScore): @Html.DisplayFor(model => model.ReviewScore). </p>
+        <p>@Html.DisplayNameFor(model => model.ReleaseDate):@Html.DisplayFor(model => model.ReleaseDate). </p>
+        <p>@Html.DisplayNameFor(model => model.AvailableInMarket): @Html.DisplayFor(model => model.AvailableInMarket). </p>
+        <p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description). </p>
+        <p>@Html.ActionLink("Go back to all list", "ShowAllCars", "car")</p>
+
+    </div>

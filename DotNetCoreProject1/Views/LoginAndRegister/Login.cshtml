@@ -1,0 +1,51 @@
+﻿@page
+@model DotNetCoreProject1.Models.Login;
+@{
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="container">
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Dashboard", "DisplayDashboard", "Dashboard")
+            @Html.ActionLink("About", "AboutPage", "About")
+            @Html.ActionLink("Car Model", "ShowAllCars", "Car")
+            @Html.ActionLink("Login", "Login", "LoginAndRegister")
+        </div>
+    </nav>
+    <section class="page-section">
+        <div class="container">
+
+            <fieldset>
+                <legend>
+                    please login below:
+                </legend>
+
+                @*simplest way to create form in asp.net*@
+                <div class="container">
+                    <h3>Login Form:</h3>
+                    @using (Html.BeginForm()) //Html.BeginForm("action", "controller"). It is done here by default by model binder.
+                    {
+                        @Html.EditorForModel()
+                        <input type="submit" value="Login" />
+                    }
+                </div>
+                <br />
+                <p>@Html.ActionLink("Register Here if you don't have an account yet", "Register", "LoginAndRegister")</p>
+
+
+            </fieldset>
+        </div>
+    </section>
+
+
+    </body>
+</html>

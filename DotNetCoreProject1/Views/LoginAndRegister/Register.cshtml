@@ -1,0 +1,90 @@
+﻿@page
+@model DotNetCoreProject1.Models.Register;
+@{
+    
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register Page</title>
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+</head>
+<body>
+    <nav class="page-nav">
+        <div class="container">
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Dashboard", "DisplayDashboard", "Dashboard")
+            @Html.ActionLink("About", "AboutPage", "About")
+            @Html.ActionLink("Car Model", "ShowAllCars", "Car")
+            @Html.ActionLink("Login", "Login", "LoginAndRegister")
+        </div>
+    </nav>
+
+
+    <section class="page-section">
+        <div class="container">
+
+
+            <fieldset>
+                @*easy way to create form in asp.net*@
+
+                @*simplest way to create form in asp.net*@
+                <div class="container">
+                    <h3>Plase Register below:</h3>
+                    @using (Html.BeginForm("Register", "LoginAndRegister"))
+                    {
+                        @Html.EditorForModel()
+                        <input type="submit" value="Register" />
+                    }
+
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+                @*<legend>
+                        please register below:
+                    </legend>*@
+                @*<form class="form " asp-action="Register" asp-controller="LoginAndRegister" method="post" id="registration-form">
+
+                        <label for="Fname"> First Name: </label><br>
+                        <input type="text" id="Fame" name="Fname" required="required" placeholder="First name here" autofocus="autofocus"><br>
+
+                        <label for="Lname"> Last Name: </label><br>
+                        <input type="text" id="Lname" name="Lname" required="required" placeholder="Last name here"><br>
+
+                        <label for="Email"> Email: </label><br>
+                        <input type="email" id="Email" name="email" required="required" pattern="[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Enter valid email" placeholder="Email here"><br>
+
+                        <label for="Username"> Username: </label><br>
+                        <input type="text" id="Username" name="username" required="required" minlength="2" title="minimum 2 characters" placeholder="Username here"><br>
+
+                        <label for="Password"> Password: </label><br>
+                        <input type="password" id="Password" name="password" required="required" minlength="5" title="minimum 5 characters" placeholder="Password here"><br>
+
+                        <label for="ConfirmPassword"> Confirm Password: </label><br>
+                        <input type="password" id="ConfirmPassword" name="confirmPassword" required="required" placeholder="Confirm password here"><br><br />
+
+                        <button type="submit">Register</button>
+                        <input type="reset" onclick="alert('This button clears the form.')">
+                    </form>*@
+                <br />
+                <p> @Html.ActionLink("Login Here, if you already have an account", "Login", "LoginAndRegister")</p>
+
+            </fieldset>
+            <br />
+
+            <input type="button" id="usersButton" value="show all users" />
+            <input type="button" id="usersClearButton" value="clear users" />
+            <ul id="usersPlaceholder"> </ul>
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="~/js/register.js"></script>
+
+    </body>
+</html>
